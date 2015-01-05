@@ -1,0 +1,13 @@
+LIBRARY "TDBG.DLL"
+
+EXPORTS
+    
+    ExtensionApiVersion
+	hookjit
+    help
+
+	DebugExtensionNotify
+    DebugExtensionInitialize
+    DebugExtensionUninitialize
+    KnownStructOutput
+    _EFN_Analyze
