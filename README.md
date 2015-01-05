@@ -16,3 +16,6 @@ tools/
 
 some tools for analysis vulnerability or exploit
 
+shareppt/
+
+some security ppt for share 
