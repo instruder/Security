@@ -18,4 +18,17 @@ some tools for analysis vulnerability or exploit
 
 shareppt/
 
-some security ppt for share 
+my some security ppt for share 
+
+research/
+
+security research 
+
+exploit/
+
+advanced exploit 
+
+analysis/
+
+vulnerability analysis
+
