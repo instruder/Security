@@ -14,7 +14,7 @@ Security
 
 tools/
 
-some tools for analysis vulnerability or exploit
+some tools for analysis vulnerability or exploit or find vul
 
 shareppt/
 
@@ -31,4 +31,9 @@ advanced exploit
 analysis/
 
 vulnerability analysis
+
+data/
+
+useful data
+hacker paper
 
