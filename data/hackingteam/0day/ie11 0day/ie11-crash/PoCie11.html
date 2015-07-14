@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+	<head>
+	
+	<div id="blah"></div>
+	<script language = 'javascript'>
+	        
+			
+			function testcase()
+			{
+							
+				newNode=document.createElementNS('http://www.w3.org/2000/svg','textPath');    // node1 
+				var observerObject = new MutationObserver(moEH);
+				
+								
+				
+				document.write("\u4141");
+				
+								
+				allNodes=[];
+				allNodes.push(newNode);	// 0
+		
+				
+				
+				allNodes.push(newNode);	// 1
+				
+				
+				newNode=document.createElement('METER');  // node2
+				allNodes.push(newNode);
+				
+				currElem=newNode;
+				var observerObject = new MutationObserver(moEH);
+				observerObject.observe(currElem, { childList: true, subtree: true});
+				
+				
+				
+				allNodes.push(newNode);	// 2
+				
+				
+				
+				allNodes.push(newNode);	// 3
+				
+
+				newNode=document.createElement('lalala');    // node3
+				allNodes.push(newNode);	// 4
+				root=allNodes[2];
+				root.appendChild(newNode);
+				newNode=document.createElement('boboboo');    // node4
+				allNodes.push(newNode);	// 5
+				
+				
+				
+				var s=document.createElement("script");  // node 5
+				s.innerText='setTimeout(function(){tick();},0);';
+				document.body.appendChild(s);
+								
+				var n1 = allNodes[5];
+				var n2 = allNodes[6];
+							
+				
+				iBParam1=n1;iBParam2=n2; 
+				q1=iBParam1;
+				q2=iBParam2;
+				q1.parentNode.insertBefore(q2, q1);
+				
+    			
+			}
+        
+		function moEH(mutationRecordList){
+			
+		}			
+
+		</script>
+	</head>
+	<body onload='testcase();'>
+	</body>
+</html>

